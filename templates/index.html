@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="noncontainer">
+            <h3>Heart Disease Prediction</h3>
+                <ul>
+                    <li><a href="#">Home </a> </li>
+                    <li><a href="#">Predict </a> </li>
+                    <li><a href="#">About</a> </li>
+                </ul>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="containerhero">
+            <div class="main-message">
+                <h1>Heart Disease Prediction</h1>
+                <p>Heart disease is a leading cause of death in the United States, but there are many things you can do to reduce your risk of heart disease. This project is a machine learning model that predicts the presence of heart disease in a patient based on various medical attributes.</p>
+                <a href="{% url 'predict' %}" class="cta">Predict Now</a>
+            </div>
+        </div>
+</body>
+</html>

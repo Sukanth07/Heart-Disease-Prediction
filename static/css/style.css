@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    
+    font-size: 16px;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    height: 100vh;
+    overflow-y: scroll;
+    background: url("../img/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+
+.noncontainer{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    padding: 20px 15px; 
+    opacity: 0.8;
+
+}
+.noncontainer > ul{
+    list-style: none;
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+
+}
+.noncontainer > ul > li{
+    margin: 0 10px;
+    padding: 5px 10px;
+}
+
+.noncontainer > ul >li:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 5px 10px;
+
+}
+.hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+}
+.hero > .containerhero > .main-message > h1{
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+.hero > .containerhero > .main-message > p{
+    font-size: 1rem;
+    margin-bottom: 20px;
+   padding: 0 40px;
+}
+.hero > .containerhero > .main-message > a{
+    font-size: 1rem;
+    margin-bottom: 20px;
+   padding: 0 40px;
+   background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+    
+.formelement{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-self: center;
+    justify-self: center;
+    height: 100vh;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+}
+
+.form-group{
+  
+    width: 400px;
+}
+
+.container{
+    background: rgba(0,0,0, 0.7);
+    padding: 20px 0;
+    border-radius: 10px;
+}
+
+.predict-btn{
+    background-color: rgb(160, 17, 17);
+    margin-top: 30px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    margin-left: 10px;
+    color: #fff;
+}
+
+.clear-btn{
+    background-color: rgb(0, 129, 140);
+    margin-top: 30px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    margin-left: 10px;
+}
+
