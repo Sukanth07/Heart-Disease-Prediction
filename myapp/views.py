@@ -1,16 +1,19 @@
-from sklearn.preprocessing import StandardScaler
-import pickle
 import os
+# from sklearn.preprocessing import StandardScaler
+import joblib
+# from tensorflow import keras
+from keras.models import load_model  
+import numpy as np
 
-tree_model_path = os.path.join(os.path.dirname(__file__), 'tree_model')
-scaler_path = os.path.join(os.path.dirname(__file__), 'scaler_pkl')
+dl_model_path = os.path.join(os.path.dirname(__file__), 'dl_best_model.h5')
+scaler_path = os.path.join(os.path.dirname(__file__), 'scaler_obj.joblib')
 
-with open(tree_model_path, 'rb') as f1:
-    model = pickle.load(f1)
-with open(scaler_path, 'rb') as f2:
-    scaler = pickle.load(f2)
+model = load_model(dl_model_path)
+scaler = joblib.load(scaler_path)
 
-from django.shortcuts import render, HttpResponse
+
+from django.shortcuts import render
+from django.http import JsonResponse
 
 # Create your views here.
 def index(request):
@@ -32,8 +35,6 @@ def prediction(request):
         exercise_angina = request.POST.get('exercise-induced-angina')
         oldpeak = float(request.POST.get('oldpeak'))
         slope = request.POST.get('slope')
-        vessels = int(request.POST.get('major-vessels'))
-        thal = request.POST.get('thal-rate')
 
         if gender == "Male":
             gender = 1
@@ -73,20 +74,16 @@ def prediction(request):
         else:
             slope = 2
 
-        if thal == "Normal":
-            thal = 1
-        elif thal == "Fixed Defect":
-            thal = 2
-        else:
-            thal = 3
 
-        input_data = [[age, gender, cp, bp, cholestoral, blood_sugar, electro_result, max_heart_rate, exercise_angina, oldpeak, slope, vessels, thal]]
+        input_data = [[age, gender, cp, bp, cholestoral, blood_sugar, electro_result, max_heart_rate, exercise_angina, oldpeak, slope]]
         input_data_scaled = scaler.transform(input_data)
 
-        prediction = model.predict(input_data_scaled)
+        predction = np.round(model.predict(input_data_scaled)).astype(int)
         if prediction == 1:
             print("yes")
-            return render(request, 'predict.html', {'prediction': 'Yes'}, content_type='application/json')
+            return JsonResponse({'prediction': 'Yes'})
         else:
             print("no")
-            return render(request, 'predict.html', {'prediction': 'No'}, content_type='application/json')
+            return JsonResponse({'prediction': 'No'})
+    
+    return render(request, 'predict.html')

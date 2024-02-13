@@ -11,25 +11,20 @@ html{
     scroll-behavior: smooth;
 }
 
-body{
-    
+body{  
     font-size: 16px;
-    background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
     height: 100vh;
-    overflow-y: scroll;
     background: url("../img/background.jpg");
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    
 }
 
 .noncontainer{
     display: flex;
     justify-content: space-between;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     color: white;
     padding: 20px 15px; 
     opacity: 0.8;
@@ -37,27 +32,32 @@ body{
 }
 .noncontainer > ul{
     list-style: none;
-    display: flex;
-    
+    display: flex; 
     align-items: center;
     justify-content: center;
     margin: 0;
     padding: 0;
 
 }
-.noncontainer > ul > li{
+
+.noncontainer > ul > li > a{
     margin: 0 10px;
     padding: 5px 10px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    transition: .3s ease;
 }
 
-.noncontainer > ul >li:hover{
+.noncontainer > ul >li > a:hover{
     cursor: pointer;
     background-color: white;
     color: black;
     border-radius: 5px;
     padding: 5px 10px;
-
+    transition: .3s ease;
 }
+
 .hero{
     display: flex;
     justify-content: center;
@@ -66,27 +66,37 @@ body{
     text-align: center;
     color: white;
     font-weight: 600;
+        
 }
+
 .hero > .containerhero > .main-message > h1{
     font-size: 3rem;
     margin-bottom: 20px;
 }
+
 .hero > .containerhero > .main-message > p{
     font-size: 1rem;
-    margin-bottom: 20px;
-   padding: 0 40px;
+    margin-bottom: 40px;
+    padding: 0 100px;
 }
+
 .hero > .containerhero > .main-message > a{
     font-size: 1rem;
     margin-bottom: 20px;
-   padding: 0 40px;
-   background-color: black;
+    padding: 0 40px;
+    background-color: black;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
+    transition: .3s ease;
 }
 
+.hero > .containerhero > .main-message > a:hover{
+    background-color: white;
+    color: black;
+    transition: .3s ease;
+}
     
 .formelement{
     margin-top: 20px;
@@ -104,34 +114,46 @@ body{
     width: 100%;
 }
 
-.form-group{
-  
-    width: 400px;
+.container > .container-form{
+    background: rgba(0,0,0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.container{
-    background: rgba(0,0,0, 0.7);
-    padding: 20px 0;
-    border-radius: 10px;
+.form-buttons{
+    margin-top: 25px;
 }
 
 .predict-btn{
     background-color: rgb(160, 17, 17);
-    margin-top: 30px;
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
-    margin-left: 10px;
     color: #fff;
+    margin-left: 10px;   
+    transition: .3s ease;
+}
+
+.predict-btn:hover{
+    cursor: pointer;
+    background-color: rgb(180, 5, 5);
+    color: #fff;
+    transition: .3s ease;
 }
 
 .clear-btn{
-    background-color: rgb(0, 129, 140);
-    margin-top: 30px;
+    background-color: rgb(0, 111, 121);
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
     color: #fff;
     margin-left: 10px;
+    transition: .3s ease;
 }
 
+.clear-btn:hover{
+    cursor: pointer;
+    background-color: rgb(1, 135, 147);
+    color: #fff;
+    transition: .3s ease;
+}
