@@ -78,7 +78,9 @@ def prediction(request):
         input_data = [[age, gender, cp, bp, cholestoral, blood_sugar, electro_result, max_heart_rate, exercise_angina, oldpeak, slope]]
         input_data_scaled = scaler.transform(input_data)
 
-        predction = np.round(model.predict(input_data_scaled)).astype(int)
+        predicted_value = model.predict(input_data_scaled)
+        print('predicted value: ',predicted_value)
+        prediction = np.round(model.predict(input_data_scaled)).astype(int)
         if prediction == 1:
             print("yes")
             return JsonResponse({'prediction': 'Yes'})
